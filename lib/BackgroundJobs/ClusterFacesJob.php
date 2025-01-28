@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright (c) 2022 The Recognize contributors.
  * This file is licensed under the Affero General Public License version 3 or later. See the COPYING file.
@@ -36,7 +37,6 @@ class ClusterFacesJob extends QueuedJob {
 	 * @return void
 	 */
 	protected function run($argument) {
-		/** @var string $userId */
 		$userId = (string) $argument['userId'];
 		try {
 			$this->clusterAnalyzer->calculateClusters($userId, self::BATCH_SIZE);
